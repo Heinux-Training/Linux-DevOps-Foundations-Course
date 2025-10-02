@@ -5,10 +5,9 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/bin/bash /Users/heinhtetwin/Documents/Documents - Hein’s MacBook Pro (2)/Personal_Projects/teaching/Linux-DevOps-Foundations-Course/Module1 - Linux/start_hello_app.sh
+ExecStart=/bin/bash <script-dir>
 Restart=on-failure
 RestartSec=3
-WorkingDirectory=/Users/heinhtetwin/Documents/Documents - Hein’s MacBook Pro (2)/Personal_Projects/teaching/Linux-DevOps-Foundations-Course/Module1 - Linux
 
 [Install]
 WantedBy=multi-user.target
