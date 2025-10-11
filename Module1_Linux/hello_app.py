@@ -15,6 +15,7 @@ class HelloWorldHandler(BaseHTTPRequestHandler):
 
 def run_server(host: str = "0.0.0.0", port: int = 8080) -> None:
     server = HTTPServer((host, port), HelloWorldHandler)
+    print(f"Server started at http://{host}:{port}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
