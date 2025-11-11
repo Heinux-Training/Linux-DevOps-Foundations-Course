@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cat Static Site</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.5;
+        display: grid;
+        min-height: 100dvh;
+        place-items: center;
+        background: radial-gradient(80% 60% at 50% 0%, #f5efe6 0, #f2f2f2 40%, #e9e9e9 100%);
+      }
+      .container {
+        width: min(900px, 92vw);
+        text-align: center;
+        background: rgba(255,255,255,0.7);
+        backdrop-filter: blur(6px);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      }
+      h1 {
+        color: #FFD700; /* Golden color for header, visible on white backgrounds */
+      }
+      h1 { margin: 0 0 12px; font-size: clamp(1.5rem, 2.5vw + 1rem, 2.4rem); }
+      p { margin: 0 0 20px; color: #555; }
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      }
+      footer { margin-top: 16px; font-size: 0.9rem; color: #666; }
+      a { color: #2c6bed; text-decoration: none; }
+      a:hover { text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Welcome to the S3 Static Website</h1>
+      <p>This page is served from an Amazon S3 bucket.</p>
+      <img src="cat_with_food.png" alt="Illustration of a cat searching for food on a laptop" />
+      <footer>
+        Hosted on Amazon S3 • <a href="https://aws.amazon.com/s3/" target="_blank" rel="noopener">Learn more</a>
+      </footer>
+    </main>
+  </body>
+</html>
+
+
