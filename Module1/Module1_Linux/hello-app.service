@@ -1,0 +1,16 @@
+[Unit]
+Description=Hello App (Python HTTP server on 8080)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/hello-app
+ExecStart=/opt/hello-app/start_hello_app.sh
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
