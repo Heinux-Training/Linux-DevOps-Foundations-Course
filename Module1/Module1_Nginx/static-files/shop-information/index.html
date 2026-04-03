@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Basket Shop | Information</title>
+  <style>
+    :root {
+      --bg: #fffaf0;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --brand: #b45309;
+      --soft: #fef3c7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #fffbeb 0%, #fff 100%);
+      color: var(--text);
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 18px;
+    }
+
+    .hero {
+      background: var(--panel);
+      border: 1px solid #fde68a;
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 10px 22px rgba(180, 83, 9, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: var(--brand);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: var(--soft);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: #92400e;
+      margin-bottom: 14px;
+    }
+
+    .grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .box {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Golden Basket Shop</h1>
+      <span class="tag">Local Grocery & Essentials</span>
+      <p>
+        Welcome to Golden Basket Shop. We provide fresh groceries, household
+        items, and daily essentials with friendly neighborhood service.
+      </p>
+
+      <div class="grid">
+        <article class="box">
+          <h2>Opening Hours</h2>
+          <p>Mon - Sat: 8:00 AM - 9:00 PM</p>
+        </article>
+        <article class="box">
+          <h2>Location</h2>
+          <p>No. 42, Main Street, Yangon</p>
+        </article>
+        <article class="box">
+          <h2>Contact</h2>
+          <p>+95 9 123 456 789</p>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
