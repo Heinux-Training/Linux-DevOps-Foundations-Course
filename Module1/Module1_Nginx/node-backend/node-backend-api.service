@@ -1,0 +1,15 @@
+[Unit]
+Description=Module 1 Nginx lab — Node demo API (Express)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/ABSOLUTE/PATH/TO/Linux-DevOps-Foundations-Course/Module1/Module1_Nginx/node-backend
+Environment=NODE_ENV=production
+Environment=PORT=4000
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
