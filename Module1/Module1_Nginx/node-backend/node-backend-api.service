@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-WorkingDirectory=/ABSOLUTE/PATH/TO/Linux-DevOps-Foundations-Course/Module1/Module1_Nginx/node-backend
+WorkingDirectory=/opt/app
 Environment=NODE_ENV=production
 Environment=PORT=4000
 ExecStart=/usr/bin/node server.js

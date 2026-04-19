@@ -1,0 +1,10 @@
+# Copy to terraform.tfvars (gitignored) and adjust.
+#   cp terraform.tfvars.example terraform.tfvars
+
+aws_profile     = "your-aws-profile-name"
+aws_region      = "eu-central-1"
+project_name    = "module1-lab"
+instance_count  = 2
+
+# Optional: lock SSH to your IP instead of the whole internet.
+# allowed_ssh_cidr = "203.0.113.50/32"
