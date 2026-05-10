@@ -1,0 +1,14 @@
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "lambda-test-stack"
+resolve_s3 = true
+s3_prefix = "lambda-test-stack"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+parameter_overrides = "BucketName=\"heinux-s3-thumbnails-test\" UploadPrefix=\"uploads/\" ThumbnailPrefix=\"thumbnails/\" ThumbnailSize=\"256\""
+image_repositories = []
+
+[default.global.parameters]
+region = "ap-southeast-1"

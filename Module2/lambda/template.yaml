@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: S3 event triggers Lambda to create thumbnails
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Existing S3 bucket name where images are uploaded
+    Default: heinux-s3-thumbnails-test
+
+  UploadPrefix:
+    Type: String
+    Default: uploads/
+    Description: Prefix for original uploads (S3 notification filter)
+
+  ThumbnailPrefix:
+    Type: String
+    Default: thumbnails/
+    Description: Prefix for generated thumbnails
+
+  ThumbnailSize:
+    Type: Number
+    Default: 256
+    Description: Max width/height for thumbnails
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Timeout: 30
+    MemorySize: 512
+    Architectures:
+      - x86_64
+
+Resources:
+  ThumbnailFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.handler
+      Description: Create thumbnail on S3 upload
+      Environment:
+        Variables:
+          THUMBNAIL_PREFIX: !Ref ThumbnailPrefix
+          THUMBNAIL_SIZE: !Ref ThumbnailSize
+      Policies:
+        - S3ReadPolicy:
+            BucketName: !Ref BucketName
+        - S3WritePolicy:
+            BucketName: !Ref BucketName
+
+  AllowS3InvokeThumbnailFunction:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt ThumbnailFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: s3.amazonaws.com
+      SourceAccount: !Ref AWS::AccountId
+      SourceArn: !Sub arn:aws:s3:::${BucketName}
+
+Outputs:
+  ThumbnailFunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt ThumbnailFunction.Arn
+
