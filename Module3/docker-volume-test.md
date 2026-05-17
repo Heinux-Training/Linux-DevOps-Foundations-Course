@@ -2,7 +2,8 @@
 ```docker volume create pgdata```
 
 ## Run PostgreSQL with the volume
-```docker run -d \
+```
+docker run -d \
   --name postgres \
   -e POSTGRES_USER=appuser \
   -e POSTGRES_PASSWORD=secretpass123 \
@@ -14,7 +15,8 @@
 ## Verify it's running
 ```docker logs postgres```
 ## Connect and create a table
-```docker exec -it postgres psql -U appuser -d myapp -c "
+```
+docker exec -it postgres psql -U appuser -d myapp -c "
   CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
@@ -24,7 +26,8 @@
 "
 ```
 ## Prove persistence: destroy and recreate container
-```docker rm -f postgres
+```
+docker rm -f postgres
 docker run -d --name postgres -e POSTGRES_USER=appuser \
   -e POSTGRES_PASSWORD=secretpass123 -e POSTGRES_DB=myapp \
   -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres:16-alpine
